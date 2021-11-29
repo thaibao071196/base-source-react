@@ -1,0 +1,25 @@
+.container {
+  margin-top: $header-size;
+  display: flex;
+
+  @include respond(tab-land) {
+    margin-top: $header-size + $header-sub-size;
+  }
+
+  &__with-sidebar {
+    width: 100vw - $sidebar-width;
+    margin-left: $sidebar-width;
+
+    @include respond(tab-land) {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+
+input, textarea {
+  font-family: $font-primary;
+  font-weight: 400;
+  font-size: 1.5rem;
+}

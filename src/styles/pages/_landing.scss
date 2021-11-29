@@ -1,0 +1,375 @@
+.landing-page {
+  min-height: 100vh;
+  // background: linear-gradient(0deg, rgba($color-black, 0.5), rgba($color-black, 0.5)), url(../../assets/images/bg-landing-page.png) repeat;
+  // background-image: url(../../assets/images/bg-landing-page3.jpg);
+  background-repeat: fixed;
+  background-attachment: fixed;
+  background-position: center top;
+  background-size: cover;
+  color: $color-gray-3;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  z-index: 1;
+
+  &--container {
+    width: 110rem;
+    margin: 0 auto;
+    padding: 4rem 0;
+    
+    @include respond(tab-land) {
+      width: unset;
+      margin: 0;
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__textures {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    &--content {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    &--earth {
+      overflow: hidden;
+      position: absolute;
+      right: -25vh;
+      bottom: 0;
+      width: 90vh;
+      height: 90vh;
+
+      @include respond(phone) {
+        width: 90vh;
+        height: 90vh;
+        left: 1rem;
+        right: unset;
+      }
+    }
+
+    &--rocket {
+      overflow: hidden;
+      position: absolute;
+      right: 30rem;
+      top: 10rem;
+      width: 20rem;
+      height: 14rem;
+
+      @include respond(phone) {
+        top: 10rem;
+        right: 5rem;
+        bottom: 5rem;
+        width: 15rem;
+        height: 10rem;
+      }
+    }
+
+    &--astronaut {
+      overflow: hidden;
+      position: absolute;
+      right: 40rem;
+      bottom: 5rem;
+      width: 30rem;
+      height: 30rem;
+
+      @include respond(phone) {
+        right: 0;
+        bottom: 5rem;
+        width: 20rem;
+        height: 20rem;
+      }
+    }
+  }
+
+  &__section {
+    position: relative;
+    &--1 {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+
+      // @include respond(tab-land) {
+      //   padding-top: $header-size + 7rem;
+      //   height: auto;
+      // }
+    }
+
+    &--2 {}
+    &--3 {
+      margin-top: 15rem;
+    }
+
+    &--4 {
+      margin-top: 2rem;
+    }
+
+    &--5 {
+      margin-top: 10rem;
+      // background: linear-gradient(0deg, rgba($color-black, 0.4), rgba($color-black, 0.4)), url(../../assets/images/bg-landing-banner.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100rem;
+    }
+  }
+
+  &__feature-slider {
+    background: linear-gradient(90deg, $color-earth-gradient-1 0%, $color-earth-gradient-2 35%, $color-earth-gradient-3 100%);
+    border-radius: 6rem;
+    width: 100%;
+    height: 45rem;
+    margin: 0 auto;
+    user-select: none;
+    box-shadow: inset 3px 0.5px 5px 2px rgba($color-white, 0.7);
+    display: flex;
+    
+    @include respond(tab-land) {
+      height: 35rem;
+    }
+    
+    @include respond(phone) {
+      width: 100%;
+      height: 25rem;
+      border-radius: 2.5rem;
+    }
+
+    h3 {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      font-family: $font-captain;
+
+      @include respond(phone) {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: $color-gray-4;
+      font-weight: 300;
+      @include respond(phone) {
+        font-size: 1.1rem;
+        line-height: 1.1rem;
+      }
+    }
+
+    &--box {
+      width: 33.333333%;
+      height: 100%;
+      position: relative;
+      transition: all .3s ease-in-out;
+      padding-top: 2rem;
+      border-radius: 3.5rem;
+
+      &:first-child {
+
+        @include respond(tab-port) {
+          display: none;
+        }
+
+        &::after {
+          content: "";
+          height: 20rem;
+          width: 1px;
+          background-color: $color-gray-5;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &__content {
+        width: 100%;
+        height: 100%;
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      &__content--2 {
+        width: 100%;
+        height: 100%;
+        padding: 3rem 1.5rem;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transform: scaleY(0.9) translateY(-1rem);
+
+        @include respond(phone) {
+          padding: 1.5rem 1rem;
+        }
+      }
+
+      &--image {
+        width: 10rem;
+        height: 10rem;
+        margin: 1rem 0;
+
+        @include respond(tab-land) {
+          width: 8rem;
+          height: 8rem;
+          margin: 1rem 0;
+        }
+
+        @include respond(phone) {
+          width: 5rem;
+          height: 5rem;
+          margin: 0.5rem 0;
+        }
+      }
+
+      &--readmore {
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+        @include respond(tab-land) {
+          bottom: 1rem;
+        }
+
+        >p {
+          font-size: 1.4rem;
+          font-weight: 500;
+          color: lighten($color-primary, 10%);
+
+          @include respond(phone) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+
+    &--items {
+      width: 67.33333%;
+      height: 100%;
+      transform: scaleY(1.1) translateY(-1rem);
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+
+      &--container {
+        height: 100%;
+        border-top-right-radius: 7rem;
+        border-bottom-right-radius: 7rem;
+      }
+    }
+
+    &--item {
+      height: 100%;
+      position: relative;
+      transition: all .3s ease-out;
+      padding-top: 2rem;
+      border-radius: 3.5rem;
+      
+      @include respond(tab-land) {
+        border-radius: 2rem;
+      }
+
+      &:hover {
+        box-shadow: inset 1px 1px 4px 2px rgba($color-white, 0.7);
+        background: linear-gradient(329deg, $color-landing-slider-box-2 0%, rgba(0,0,0,0) 100%),$color-landing-slider-box-1;
+      }
+    }
+  }
+
+  .landing-heading {
+    z-index: 1;
+
+    &--headline {
+      font-family: $font-captain;
+      font-size: 5rem;
+      line-height: 5rem;
+      letter-spacing: 0.3rem;
+      text-shadow: 1px 1px 3px rgba($color-white, 0.5);
+
+      @include respond(tab-land) {
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+
+      &__sub {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $color-gray-5;
+      }
+    }
+
+    &--lead {
+      font-weight: 700;
+      font-size: 3rem;
+      text-transform: uppercase;
+      line-height: 3rem;
+      letter-spacing: 0.1rem;
+      text-shadow: 1px 1px 2px rgba($color-white, 0.5);
+      position: relative;
+      z-index: 1;
+
+      @include respond(tab-port) {
+        font-size: 2rem;
+      }
+
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   bottom: -0.3rem;
+      //   left: -0.5rem;
+      //   width: 2rem;
+      //   height: 2rem;
+      //   background-color: $color-primary;
+      //   z-index: -1;
+      //   opacity: 0.9;
+      // }
+
+      &__sub {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $color-gray-5;
+      }
+    }
+
+    &--group {
+      position: relative;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 5rem;
+        height: 3px;
+        background-color: $color-gray-5;
+        bottom: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &--image-welcome { 
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 10rem;
+  }
+}
+

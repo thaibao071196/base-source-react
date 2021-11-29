@@ -1,0 +1,122 @@
+.header2 {
+  background-color: $color-header-landing;
+  height: $header-size + 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  user-select: none;
+  z-index: 2;
+  transition: $transition;
+
+  @include respond(desktop) {
+    @include shadow();
+  }
+
+  &__left-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  &__logo {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 2rem;
+
+    @include respond(tab-land) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  }
+
+  &__logo-text {
+    user-select: none;
+
+    h4 {
+      font-weight: 500;
+      font-size: 1.7rem;
+      letter-spacing: 0.15rem;
+
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+
+  &__item {
+    margin: 0 2.5rem;
+    transition: $transition;
+    color: $color-gray-4;
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      color: $color-primary;
+      &::before {
+        width: 1.5rem!important;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      // top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 2px;
+      background-color: $color-primary;
+      // border-radius: 0.5rem;
+      transition: .2s width linear;
+    }
+  }
+}
+
+.header2--mobile-menu {
+  background-color: darken($color-header-landing, 1%);
+  height: $header-size;
+  position: fixed;
+  top: $header-size + 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  user-select: none;
+  z-index: 2;
+  transition: $transition;
+}

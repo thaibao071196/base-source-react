@@ -1,0 +1,177 @@
+.sidebar {
+  width: $sidebar-width;
+  position: fixed;
+  top: $header-size;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  @include respond(tab-land) {
+    background-color: $color-dark-2;
+    width: $sidebar-mobile-width - 40vw;
+    left: -$sidebar-mobile-width - 40vw;
+
+    @include transition(.2s, left);
+  }
+
+  @include respond(tab-port) {
+    width: $sidebar-mobile-width - 20vw;
+    left: -$sidebar-mobile-width - 20vw;;
+  }
+
+  @include respond(phone) {
+    width: $sidebar-mobile-width;
+    left: -$sidebar-mobile-width;;
+  }
+
+  &--active {
+    left: 0;
+  }
+
+  &--overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-black, 0.3);
+    z-index: 1;
+  }
+
+  &__content {
+    flex: 1;
+    margin: 1rem 1rem 0 2rem;
+    position: relative;
+  }
+
+  &--heading {
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: $color-gray-5;
+  }
+
+  &__items {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+
+    @include removeScrollbar();
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: $transition;
+    // justify-content: center;
+
+    &--image-box {
+      width: 4rem;
+      height: 4rem;
+      margin-right: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--image {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 2rem;
+    }
+
+    &--svg {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+      color: $color-gray-5;
+      transition: $transition;
+      font-weight: 400;
+    }
+
+    span {
+      font-size: 1.4rem;
+      color: $color-gray-5;
+      transition: $transition;
+    }
+
+    &:hover {
+      background-color: $color-dark-2;
+      @include transparentBg() {
+        background-color: rgba($color-dark-2, 0.5);
+      }
+      span, h4 {
+        color: $color-gray-1;
+      }
+    }
+  }
+
+  &__footer {
+    background-color: $color-dark-2;
+    border-top-right-radius: 0.5rem;
+
+    @include transparentBg() {
+      background-color: rgba($color-dark-2, 0.5);
+    }
+    
+    &__content {
+      padding: 1.5rem 1rem 1.5rem 2rem;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+
+      &--group {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        span {
+          font-size: 1.4rem;
+        }
+      }
+
+      &--avatar {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 99rem;
+        margin-right: 1rem;
+      }
+
+      &--footer {
+        display: flex;
+
+        &--box {
+          border-radius: 0.5rem;
+          padding: 0.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: $transition;
+          cursor: pointer;
+          
+          &:hover {
+            background-color: $color-dark-3;
+          }
+        }
+
+        &--icon {
+          width: 2.5rem;
+          height: 2.5rem;
+          color: $color-gray-5;
+        }
+      }
+    }
+  }
+}

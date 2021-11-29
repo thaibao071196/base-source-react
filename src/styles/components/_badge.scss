@@ -1,0 +1,28 @@
+.badge {
+  position: absolute;
+  top: 0.2rem;
+  right: -0.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  border: 0.2rem solid $color-dark-3;
+  background-color: $color-gray-6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__online {
+    background-color: lighten($color-success, 15);
+  }
+
+  &__count {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: $color-danger;
+    border: none;
+    font-size: 1.1rem;
+    top: 0;
+    right: -0.3rem;
+  }
+}

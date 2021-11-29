@@ -1,0 +1,38 @@
+.rows {
+  margin-right: 0 - $padding-grid-col;
+  margin-left: 0 - $padding-grid-col;
+
+  @include clearfix();
+}
+
+@for $i from 1 through $column-max {
+  .col-#{$i} {
+    position: relative;
+    min-height: 1px;
+    padding-right: $padding-grid-col;
+    padding-left: $padding-grid-col;
+  }
+}
+
+@for $i from 1 through $column-max {
+  .col-#{$i} {
+    width: (100% * $i) / $column-max;
+    float: left;
+
+    @include respond(tab-port) {
+      width: 100%;
+      float: none;
+    }
+  }
+}
+
+// @each $name in $screens {
+//   @include Screen($name){
+//     @for $i from 1 through $column-max {
+//       .col-#{to-lower-case(#{$name})}-#{$i} {
+//         width: (100% * $i) / $column-max;
+//         float: left; 
+//       } 
+//     }
+//   } 
+// }

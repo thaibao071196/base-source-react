@@ -1,0 +1,17 @@
+.carousel {
+  overflow: hidden;
+
+  &--inner {
+    white-space: nowrap;
+    transition: transform .3s;
+  }
+
+  &__item {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+    background-color: darkolivegreen;
+    transition: transform .3s;
+  }
+}
