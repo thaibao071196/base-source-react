@@ -1,4 +1,4 @@
-import HomePage from 'containers/HomePage';
+import HomePage from '../HomePage/index';
 
 import r from './routes';
 

@@ -3,8 +3,8 @@ import { createInjectorsEnhancer } from 'redux-injectors';
 import createSagaMiddleware from 'redux-saga';
 import { connectRouter } from 'connected-react-router';
 
-import globalReducer from 'containers/App/reducer';
-import history from 'utils/history';
+import globalReducer from '../containers/App/reducer';
+import history from '../utils/history';
 
 function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({

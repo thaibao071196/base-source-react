@@ -1,1 +1,13 @@
-.home {}
+.homepage {
+  padding: 10px 0px;
+  .homepage__listpost {
+    text-align: center;
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.create-new-post {
+  text-align: center;
+}

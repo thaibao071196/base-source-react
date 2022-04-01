@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { makeSelectIsDarkMode } from 'containers/App/selectors';
+import { makeSelectIsDarkMode } from '../App/selectors';
 
 export default function ThemeProvider({ children }) {
   const isDarkMode = useSelector(makeSelectIsDarkMode());

@@ -12,10 +12,12 @@ const AxiosClient = Axios.create({
 AxiosClient.interceptors.request.use(
   async (config) => {
     try {
-      // const token = await AsyncStorage.getItem('@token');
-      // if (token) {
-      //   config.headers.Authorization = `Bearer ${token}`;
-      // }
+      // const token = localStorage.getItem('@token');
+      const token =
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWE1ZDYwNjQ5MzlkMzlkNjFkNWNiOTgiLCJpc0Jsb2NrZWQiOmZhbHNlLCJpYXQiOjE2MzgyNTgxODIsImV4cCI6MTY0NjAzNDE4Mn0.mCqFbNupudPPW8rkxz1rIATqYrWuMTe7Ur4h_uDxnHo';
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
       return config;
     } catch (e) {
       return config;

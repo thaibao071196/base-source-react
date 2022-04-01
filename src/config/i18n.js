@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import en from 'translations/en.json';
 import vi from 'translations/vi.json';
 
-export const DEFAULT_LOCALE = 'en';
+export const DEFAULT_LOCALE = 'vi';
 
 const localeStorage = localStorage.getItem('locale');
 

@@ -1,39 +1,65 @@
-import React, { memo } from 'react';
+/* eslint-disable prettier/prettier */
+import React, { memo, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-// import { useTranslation } from 'react-i18next';
 import { useInjectReducer, useInjectSaga } from 'redux-injectors';
-
+import PostUpload from '../../components/PostUpload';
+import { requestGetPosts } from './actions';
 import reducer from './reducer';
 import saga from './saga';
-import FormTest from './FormTest';
-import { makeSelectRepos } from './selectors';
+import PostItem from '../../components/PostItem'
+import { makeSelectPosts } from './selectors';
+import PostEdit from '../../components/PostEdit'
 
 const key = 'homePage';
 
-function HomePage({ dispatch, repos }) {
+function HomePage({ dispatch, posts }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
-  // const { t } = useTranslation();
-
+  const refListPost = useRef(null);
+  const [positionListPost, setPositionListPost] = useState('');
+  useEffect(() => {
+    dispatch(requestGetPosts());
+  }, []);
+  useEffect(() => {
+    window.onscroll = () => {
+      if (
+        window.innerHeight + window.scrollY >
+        refListPost.current.clientHeight + refListPost.current.offsetTop
+      ) {
+        setPositionListPost(
+          refListPost.current.clientHeight + refListPost.current.offsetTop,
+        );
+        dispatch(requestGetPosts());
+      }
+    };
+  }, [positionListPost]);
   return (
-    <div>
-      <p>hello world</p>
-      <FormTest />
-      <p>{JSON.stringify(repos)}</p>
+    <div className="homepage">
+      <PostEdit />
+      <div className="create-new-post">
+        <PostUpload />
+      </div>
+      <div className="homepage__listpost" ref={refListPost}>
+        {posts
+            ? posts.map((post, postKey) => (
+              <PostItem post={post} key={[postKey]} />
+              ))
+            : ''}
+      </div>
     </div>
   );
 }
 
 HomePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  repos: PropTypes.array,
+  posts: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
+  posts: makeSelectPosts(),
 });
 
 const withConnect = connect(mapStateToProps);

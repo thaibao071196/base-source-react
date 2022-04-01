@@ -1,0 +1,41 @@
+.box-modal{
+  .box-modal__overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:transparent;
+    display: none;
+    z-index: 500;
+    &--show{
+      display: block;
+    }
+  }
+  .box-modal__main{
+    display: none;
+    width: 700px;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    z-index: 600;
+    left: 50%;
+    top: 50%;
+    &--delete{
+      color: $color-white;
+      cursor: pointer;
+      position: absolute;
+      top: 17px;
+      right: 5px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-white;
+      z-index: 10;
+    }
+    &.show-box-modal{
+      display: block!important;
+    }
+  }
+}

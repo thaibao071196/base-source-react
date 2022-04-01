@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { requestGetRepos } from './actions';
+import { requestGetPosts } from './actions';
 import { makeSelectIsLoading } from './selectors';
 
 function FormTest({ isLoading }) {
@@ -12,15 +12,20 @@ function FormTest({ isLoading }) {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    dispatch(requestGetRepos(data.username));
+    // dispatch(requestGetRepos(data.quantity));
+    console.log(data.quantity);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register('username')} />
+    <form className="homepage__form" onSubmit={handleSubmit(onSubmit)}>
+      <input className="homepage__form-input" {...register('quantity')} />
 
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'loading...' : 'submit'}
+      <button
+        className="homepage__form-button"
+        type="submit"
+        disabled={isLoading}
+      >
+        {isLoading ? 'loading...' : 'LẤY'}
       </button>
     </form>
   );

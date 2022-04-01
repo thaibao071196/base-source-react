@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 
-import AppContainer from 'containers/App';
-import ThemeProvider from 'containers/ThemeProvider';
-import history from 'utils/history';
+import ThemeProvider from './containers/ThemeProvider/index';
+import history from './utils/history';
+import AppContainer from './containers/App/index';
 
 import configureStore from './config/store';
 

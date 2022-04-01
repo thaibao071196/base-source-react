@@ -21,5 +21,14 @@ export const makeSelectHomePage = () =>
 export const makeSelectIsLoading = () =>
   createSelector(selectState, (state) => state.isLoading);
 
-export const makeSelectRepos = () =>
-  createSelector(selectState, (state) => state.repos);
+export const makeSelectPosts = () =>
+  createSelector(selectState, (state) => state.posts);
+
+export const makeSelectPage = () =>
+  createSelector(selectState, (state) => state.page);
+
+export const makeSelectBoxContent = () =>
+  createSelector(selectState, (state) => state.content);
+
+export const makeSelectPostGetById = () =>
+  createSelector(selectState, (state) => state.postGetById);

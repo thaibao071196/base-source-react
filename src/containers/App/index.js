@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import { useInjectSaga } from 'redux-injectors';
 import { Helmet } from 'react-helmet';
 
-import { APP_NAME } from 'config';
+import { APP_NAME } from '../../config';
 import routesMap from './routesMap';
 
 import saga from './saga';

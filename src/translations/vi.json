@@ -1,3 +1,12 @@
 {
-  "hello": "Xin chao"
+  "hello": "Xin chao",
+  "dontHaveComment": "chưa có bình luận",
+  "send": "gửi",
+  "createPost":"tạo bài viết",
+  "like":"thích",
+  "comment":"bình luận",
+  "loading":"đang tải",
+  "createNewPost":"tạo bài viết mới",
+  "save": "lưu bài viết",
+  "editPost":"chỉnh sửa bài viết"
 }
